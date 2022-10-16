@@ -314,6 +314,9 @@ body>.container>footer .copy {
     padding: 0 15px;
     margin-top: 20px;
     font-size: 18px;
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-submit {
@@ -387,12 +390,6 @@ body>.container>footer .copy {
     .main-content>article>.col-lg-9 {
         padding: 0 15px 0 15px;
         text-align: center;
-    }
-    /* conctact- page */
-    .form-control {
-        width: 70% !important;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
