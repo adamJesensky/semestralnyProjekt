@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<!-- <script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /* Make an HTTP request using the attribute value as the file name: */
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
+                        /* Remove the attribute, and call this function once more: */
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /* Exit the function: */
+                return;
+            }
+        }
+    }
+</script> -->
+
+<head>
+    <title>Svadobný salón ADRIA</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><img src="images/logo.png" alt="Svadobný salón Adria"></a>
+                    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse  justify-content-evenly align-self-end" id="collapsibleNavbar">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item"><a class="nav-link d-flex justify-content-center" href="svadobne-saty.php">Svadobné šaty</a></li>
+                            <li class="nav-item"><a class="nav-link d-flex justify-content-center  active" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link d-flex justify-content-center" href="nas-salon.php">Náš salón</a></li>
+                            <li class="nav-item"><a class="nav-link d-flex justify-content-center" href="kontakt.html">Kontakt</a></li>
+                            <div id="icons-mobile">
+                                <li class="nav-item d-flex justify-content-center ">
+                                    <a href="https://www.instagram.com/svadobnysalonadria/" target="_blank"><i class="nav-link fa fa-instagram fa-lg "></i></a>
+                                    <a href="https://www.facebook.com/Adriasvadobnysalon/" target="_blank"><i class="nav-link fa fa-facebook-official fa-lg"></i></a>
+                                    <a href="mailto:info@salon-adria.sk" target="_blank"><i class="nav-link fa fa-envelope-o fa-lg"></i></a>
+                                    <a href="tel:+421911932932" id="phone"><i class="nav-link fa fa-phone"></i></a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="head-icons">
+                        <a href="https://www.instagram.com/svadobnysalonadria/" target="_blank"><i
+                                class="fa fa-instagram fa-lg "></i></a>
+                        <a href="https://www.facebook.com/Adriasvadobnysalon/" target="_blank"><i
+                                class="fa fa-facebook-official fa-lg"></i></a>
+                        <a href="mailto:info@salon-adria.sk" target="_blank"><i class="fa fa-envelope-o fa-lg"></i></a>
+
+                        <a href="tel:+421911932932" id="phone"><i class="fa fa-phone"></i>0911 932 932</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section id="content">
+
+            <div class="main-content">
+
+                <h1>Blog</h1>
+
+
+                <article>
+                    <div class="col-lg-3">
+                        <a href="svadobne-pripravy-krok-za-krokom.php"><img src="images/calendar-3073971_640.jpg" width="320" height="200" alt="" /></a>
+                    </div>
+                    <div class="col-lg-9"><strong><a href="svadobne-pripravy-krok-za-krokom.php">Svadobné prípravy krok za krokom</a></strong><br />Váš vyvolený sa konečne rozhýbal a prekvapil krásnym žiarivým prsteňom? Gratulujeme! Keď vytriezviete z radostného ošiaľu...<br
+                        /><small><span class="date-display-single">2. 1. 2022</span></small></div>
+                    <div class="clearfix"></div>
+                </article>
+
+                <article>
+                    <div class="col-lg-3">
+                        <a href="skuska-svadobnych-siat.php"><img src="images/Skuska_svadobnych_siat_-_ilustracny_obrazok_3.jpg" width="320" height="200" alt="" /></a>
+                    </div>
+                    <div class="col-lg-9"><strong><a href="skuska-svadobnych-siat.php">Skúška svadobných šiat</a></strong><br />Tie pravé svadobné šaty Ktoré sú tie správne šaty? Ktoré sú tie pravé? Spytuje sa mnoho budúcich neviest, ktorým sa niekedy krúti hlava z...<br /><small><span class="date-display-single">2. 1. 2022</span></small></div>
+                    <div class="clearfix"></div>
+                </article>
+
+                <article>
+                    <div class="col-lg-3">
+                        <a href="Ako-si-vybrat-svadobneho-fotografa.php"><img src="images/Ako-si-vybrat-svadobneho-fotografa/Ako_si_vybrat_svadobneho_fotografa_-_ilustracny_obrazok_2.jpg" width="320" height="200" alt="" /></a>
+                    </div>
+                    <div class="col-lg-9"><strong><a href="Ako-si-vybrat-svadobneho-fotografa.php">Ako si vybrať svadobného fotografa</a></strong><br />Zdá sa vám, že váš vysnívaný deň, ktorý ste tak dlho plánovali, uplynul, ani neviete ako? Nebojte sa, môžete sa k nemu kedykoľvek
+                        vrátiť...
+                        <br /><small><span class="date-display-single">2. 1. 2022</span></small></div>
+                    <div class="clearfix"></div>
+                </article>
+
+                <article>
+                    <div class="col-lg-3">
+                        <a href="Ako-si-vybrat-spravneho-DJ-a.php"><img src="images/Ako-si-vybrat-spravneho-DJ-a/Ako_si_vybrat_spravneho_DJ-a_-_ilustracny_obrazok_2.jpg" width="320" height="200" alt="" /></a>
+                    </div>
+                    <div class="col-lg-9"><strong><a href="Ako-si-vybrat-spravneho-DJ-a.php">Ako si vybrať správneho DJ-a</a></strong><br />Hostia na parkete zanietene tancujú. Sukne sa vlnia vo víre tanca, páni povoľujú kravaty. Chytľavé melódie nenechajú nikoho nehybne...<br
+                        /><small><span class="date-display-single">2. 1. 2022</span></small></div>
+                    <div class="clearfix"></div>
+                </article>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </section>
+
+
+
+
+
+        <footer>
+            <!-- <div w3-include-html="footer.html"></div>
+            <script>
+                includeHTML();
+            </script> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5188.719988126429!2d18.780928525676952!3d49.439912659563646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47144027f03fb2c5%3A0x47da42102f61471c!2sSvadobn%C3%BD%20sal%C3%B3n%20-%20ADRIA!5e0!3m2!1ssk!2ssk!4v1665875407414!5m2!1ssk!2ssk"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="copy"><a href="/zasady-ochrany-osobnych-udajov">GDPR</a><br>Všetky práva vyhradené &copy; 2022 <a href="/" target="_blank">Svadobný salón Adria</a></div>
+            <div class="clearfix"></div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
