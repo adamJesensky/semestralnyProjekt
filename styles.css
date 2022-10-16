@@ -303,6 +303,12 @@ body>.container>footer .copy {
     color: #eeb500;
 }
 
+.rtecenter hr {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .row>.col-lg-6>h2 {
     text-align: center;
 }
