@@ -1,43 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<!-- <script>
-    function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-            elmnt = z[i];
-            /*search for elements with a certain atrribute:*/
-            file = elmnt.getAttribute("w3-include-html");
-            if (file) {
-                /* Make an HTTP request using the attribute value as the file name: */
-                xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4) {
-                        if (this.status == 200) {
-                            elmnt.innerHTML = this.responseText;
-                        }
-                        if (this.status == 404) {
-                            elmnt.innerHTML = "Page not found.";
-                        }
-                        /* Remove the attribute, and call this function once more: */
-                        elmnt.removeAttribute("w3-include-html");
-                        includeHTML();
-                    }
-                }
-                xhttp.open("GET", file, true);
-                xhttp.send();
-                /* Exit the function: */
-                return;
-            }
-        }
-    }
-</script> -->
 
 <head>
     <title>Svadobný salón ADRIA</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -79,7 +46,7 @@
                                     <a href="https://www.instagram.com/svadobnysalonadria/" target="_blank"><i class="nav-link fa fa-instagram fa-lg "></i></a>
                                     <a href="https://www.facebook.com/Adriasvadobnysalon/" target="_blank"><i class="nav-link fa fa-facebook-official fa-lg"></i></a>
                                     <a href="mailto:info@salon-adria.sk" target="_blank"><i class="nav-link fa fa-envelope-o fa-lg"></i></a>
-                                    <a href="tel:+421911932932" id="phone"><i class="nav-link fa fa-phone"></i></a>
+                                    <a href="tel:+421911932932"><i class="nav-link fa fa-phone"></i></a>
                                 </li>
                             </div>
                         </ul>
