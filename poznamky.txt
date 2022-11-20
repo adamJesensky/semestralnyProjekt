@@ -1,0 +1,3 @@
+header linky pozriet ci funguju v menu nefunguje hlavna trasa cez img.
+validita html
+moznom ensie logo na telefonoch 
