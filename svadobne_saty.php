@@ -123,7 +123,7 @@
               //       <span><img src="<?php echo $imageURL; ?>" width="709" height="1024" alt="" /></span>
               // <br>
               //       </a>
-              //       <a href="<?php echo $imageURL; ?>" data-lightbox="gallery" class="zoom" ><i class="fa fa-search-plus fa-lg"></i></a>
+              //       <a href="<?php //echo $imageURL; ?>" data-lightbox="gallery" class="zoom" ><i class="fa fa-search-plus fa-lg"></i></a>
               //     </div> 
                   
               //  }

@@ -48,11 +48,15 @@
   width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-<div class="copy"><a href="https://gdpr-slovensko.sk/co-je-gdpr/">GDPR</a><br>Všetky práva vyhradené &copy; 2022
+<div class="copy py-3"><a href="https://gdpr-slovensko.sk/co-je-gdpr/">GDPR</a><br>Všetky práva vyhradené &copy; 2022
   <a href="/" target="_blank">Svadobný salón Adria</a><br>
   <!-- <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-default"
         style="width:auto;">Prihlásiť</button> -->
-  <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#ModalForm">
+  <!-- <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#ModalForm">
+    Prihlásiť
+  </button> -->
+  <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#ModalForm" s
+    onclick="document.location='login.php'">
     Prihlásiť
   </button>
 

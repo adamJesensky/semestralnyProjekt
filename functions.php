@@ -30,7 +30,7 @@ function emptyInputSignup($name, $password) {
 
 
 function invalidName($name) {
-  $result;
+  //$result;
   if (!preg_match("/^[a-zA-Z0-9]*$/", $name)){
     $result = true;
   }

@@ -2,31 +2,6 @@
 session_start();
 include("connection.php");
 include("functions.php");
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //niekto vyplnil formular
-  $user_name = $_POST['user_name'];
-  $password =  $_POST['password'];
-
-  if (!empty($user_name) && !empty($password)) {
-    //select from database
-    $query = "SELECT * FROM users WHERE usersName = '$user_name' limit 1";
-    $result = mysqli_query($con, $query);
-    if ($result) {
-      if ($result && mysqli_num_rows($result) > 0) {
-        $user_data = mysqli_fetch_assoc($result);
-        if ($user_data['usersPwd'] == $password) {
-          // echo "$password heslo\n";
-          // echo  $user_data['usersPwd'];
-          // echo  $user_data['usersName'];
-          $_SESSION['usersName'] = $user_data['usersName'];
-          header("Location: admin.php");
-          die;
-        } else echo "Zadal si nespravne heslo";
-      } else echo "Zadal si neplatne prihlasovacie meno alebo heslo";
-    } else echo "Prosim zadaj nejake spravne informacie";
-  } 
-}
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Latest compiled JavaScript -->
+  <!-- Latest compiled JavaScript, ajax, sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- https://sweetalert2.github.io -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
 
   <!-- Bootstrap Font Icon CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -58,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
   <div class="container">
-    <h1>Login panel </h1>
+    <h1 class="text-center">Login panel </h1>
     <a href="logout.php">Logout</a>
     <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#ModalForm">
       Prihlásiť
@@ -75,18 +54,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="modal-body bg-dark text-center">
             <form id="form" method="post">
               <div class="mb-3 mt-4 input-control">
-                <label for="exampleInputEmail1" class="form-label">Používateľské meno</label>
+                <label for="exampleInputEmail1" class="text-white">Používateľské meno</label>
                 <input type="name" name="user_name" class="form-control" id="exampleInputEmail1"
                   aria-describedby="emailHelp">
-                <div class="error"></div>
+                <div class=" text-danger font-weight-bold error" id="error"></div>
               </div>
               <div class="mb-3 input-control">
-                <label for="exampleInputPassword1" class="form-label">Heslo</label>
+                <label for="exampleInputPassword1" class="text-white">Heslo</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                <div class="error"></div>
+                <div class=" font-weight-bold text-danger error"></div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-light mt-3" id="login_btn">LOGIN</button>
+                <button type="button" class="btn btn-light mt-3" id="login_btn" onclick="formsubmit()">LOGIN</button>
                 <!-- <p>Not a member? <a href="#">Signup now</a></p> -->
               </div>
             </form>
@@ -100,3 +79,96 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+
+<script>
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector('.error');
+
+  errorDisplay.innerText = message;
+  inputControl.classList.add('error');
+  inputControl.classList.remove('success');
+}
+const setSuccess = element => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector('.error');
+
+  errorDisplay.innerText = '';
+  inputControl.classList.add('success');
+  inputControl.classList.remove('error');
+}
+
+function stripslashes(str) {
+  return str.replace(/\\'/g, '\'').replace(/\"/g, '"').replace(/\\\\/g, '\\').replace(/\\0/g, '\0');
+}
+
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) {
+    return map[m];
+  });
+}
+
+function formsubmit() {
+  var user_name = document.getElementById('exampleInputEmail1').value;
+  var pwd = document.getElementById('exampleInputPassword1').value;
+
+  var username = document.getElementById('exampleInputEmail1');
+  var password = document.getElementById('exampleInputPassword1');
+  var usernameValue = username.value.trim();
+  var passwordValue = password.value.trim();
+
+  if (usernameValue === '') {
+    setError(username, 'Nezadali ste žiadne používateľské meno');
+    return false;
+  } else {
+    usernameValue = stripslashes(usernameValue);
+    usernameValue = escapeHtml(usernameValue);
+    setSuccess(username);
+  }
+
+
+  if (passwordValue === '') {
+    setError(password, 'Nezadali ste žiadne heslo');
+    return false;
+  } else {
+    setSuccess(password);
+    passwordValue = stripslashes(passwordValue);
+    passwordValue = escapeHtml(passwordValue);
+    var formdata = '&user_name=' + usernameValue + '&password=' + passwordValue;
+    // AJAX code to submit form.
+    // console.log("AA");
+    $.ajax({
+      type: "POST",
+      url: "login.Inc.php", //call storeemdata.php to store form data
+      data: formdata,
+      cache: false,
+
+      success: function(html) {
+        if (!$.trim(html)) {
+          window.location.href = 'admin.php';
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: html
+          })
+          //alert(html);
+        }
+      }
+    });
+  }
+  return false;
+}
+</script>
+
+<style>
+
+</style>
