@@ -1,30 +1,23 @@
 <?php
 include "connection.php"; // Using database connection file here
 
-$id = $_GET['id']; // get id through query string
+$id =  $_POST['id']; // get id through query string
 echo $id;
-$del = mysqli_query($con,"delete from users where usersId = '$id'"); // delete query
+$del = mysqli_query($con,"delete from registered_users where id = '$id'"); // delete query
 
-if($del)
-{
-    mysqli_close($con); // Close connection
-     // redirects to all records page
-     header("location:admin.php");
-//     echo "
-//     <script>
-//     Swal.fire({
-//       position: 'top-mid',
-//       icon: 'success',
-//       title: 'Vymazal si člena',
-//       showConfirmButton: false,
-//       timer: 1500
-//     });
-//     </script>
-// ";
-    exit;	
+
+// Prepare the update statement
+$stmt = mysqli_prepare($con, "delete from registered_users where id = ?");
+
+// Bind the parameters
+mysqli_stmt_bind_param($stmt, "i",  $id);
+
+// Execute the statement
+if (mysqli_stmt_execute($stmt)) {
+    echo "User deleted successfully";
+} else {
+    echo "Error deleting user: " . mysqli_error($con);
 }
-else
-{
-    echo "Error deleting record"; // display error message if not delete
-}
-?>
+// Close statement and connection
+mysqli_stmt_close($stmt);
+mysqli_close($con);

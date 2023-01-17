@@ -90,13 +90,21 @@
     <div class="obsah">
       <br>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 photos m-0 p-2">
-        <div class=" item"><a href="sql_data/novinky_2020/1.jpg" data-lightbox="photos"><img class="img-fluid"
+        <!-- <div class=" item py-3  "><a href="sql_data/novinky_2020/1.jpg" data-lightbox="photos"><img class="img-fluid"
               src="sql_data/novinky_2020/1.jpg"></a></div>
-        <div class=" item"><a href="sql_data/novinky_2020/2.jpg" data-lightbox="photos"><img class="img-fluid"
+        <div class=" item py-3 "><a href="sql_data/novinky_2020/2.jpg" data-lightbox="photos"><img class="img-fluid"
               src="sql_data/novinky_2020/2.jpg"></a></div>
-        <div class=" item"><a href="sql_data/novinky_2020/3.jpg" data-lightbox="photos"><img class="img-fluid"
+        <div class=" item py-3 "><a href="sql_data/novinky_2020/3.jpg" data-lightbox="photos"><img class="img-fluid"
               src="sql_data/novinky_2020/3.jpg"></a></div>
+        <div class=" item py-3 "><a href="sql_data/novinky_2020/3.jpg" data-lightbox="photos"><img class="img-fluid"
+              src="sql_data/novinky_2020/3.jpg"></a></div>
+        <div class=" item py-3 "><a href="sql_data/novinky_2020/3.jpg" data-lightbox="photos"><img class="img-fluid"
+              src="sql_data/novinky_2020/3.jpg"></a></div> -->
+
+        <?php include_once 'get_weddingDressPhotos.php';?>
       </div>
+      <!-- get_weddingDressPhotos.php -->
+
       <!-- lightbox kniznice-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

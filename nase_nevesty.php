@@ -88,44 +88,8 @@
             </div>
           </div>
         </div>
-        <div class="col p-2">
-          <div class="card h-100">
-            <img src="sql_data/nase_nevesty/gallery.5e5ed111f190a1.29179286.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-2 p-sm-3">
-              <h5 class="card-title">Zuzanka</h5>
-              <p class="card-text">Úplná topka.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="col p-2">
-          <div class="card h-100">
-            <img src="sql_data/nase_nevesty/gallery.5e5ed1424989e7.04507107.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-2 p-sm-3">
-              <h5 class="card-title">Janka</h5>
-              <p class="card-text">Vznikajuci servis a obsluha.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col p-2">
-          <div class="card h-100">
-            <img src="sql_data/nase_nevesty/gallery.5e5ed1c83d0138.65395526.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-2 p-sm-3">
-              <h5 class="card-title">Petra</h5>
-              <p class="card-text">Neviem si viac vynachvalit</p>
-            </div>
-          </div>
-        </div>
-        <div class="col p-2">
-          <div class="card h-100">
-            <img src="sql_data/nase_nevesty/gallery.5e5ed21d7a0271.52070836.jpg" class="card-img-top" alt="...">
-            <div class="card-body p-2 p-sm-3">
-              <h5 class="card-title">Jolanda</h5>
-              <p class="card-text">Najlepšia noc mojho života!</p>
-            </div>
-          </div>
-        </div>
-
+        <?php include_once 'get_reviews.php';?>
 
       </div>
     </div>

@@ -2,9 +2,9 @@
 //check if user is logged in
 function check_login($con){
 
-  if(isset($_SESSION['usersName'])){
-    $id = $_SESSION['usersName'];
-    $query = "SELECT * FROM users where usersName = '$id' limit 1";
+  if(isset($_SESSION['username'])){
+    $id = $_SESSION['username'];
+    $query = "SELECT * FROM registered_users where username = '$id' limit 1";
     $result = mysqli_query($con, $query);
     if($result && mysqli_num_rows($result) > 0){
       $user_data = mysqli_fetch_assoc($result);
@@ -13,7 +13,7 @@ function check_login($con){
     //else echo "No users found";
   }
   //redirect to login page
-  header('Location: login.php');
+  header('Location: index.php');
   die;
 }
 
@@ -60,7 +60,6 @@ function nameExists($conn, $name) {
   }
 }
 
-function createUser (){};
 
 function validate_input($input) {
   $input = trim($input);

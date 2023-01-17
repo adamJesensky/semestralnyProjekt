@@ -60,7 +60,7 @@
     Prihlásiť
   </button>
 
-  <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content prihlasenie">
         <div class="modal-header bg-dark  d-flex justify-content-center ">
@@ -80,15 +80,14 @@
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-light mt-3" id="login_btn">LOGIN</button>
-            <!-- <p>Not a member? <a href="#">Signup now</a></p> -->
           </form>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<!-- <div id="id01" class="modal">
+  <!-- <div id="id01" class="modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="myform bg-dark">
@@ -108,7 +107,7 @@
             </div>
         </div>
     </div> -->
-<!-- <form class="modal-content animate" action="/action_page.php" method="post">
+  <!-- <form class="modal-content animate" action="/action_page.php" method="post">
 
         <div class="container">
             <div class="modal-header">
@@ -130,7 +129,7 @@
     </form> -->
 </div>
 
-<script>
+<!-- <script>
 // Get the modal
 var modal = document.getElementById('id01');
 
@@ -140,4 +139,4 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-</script>
+</script> -->

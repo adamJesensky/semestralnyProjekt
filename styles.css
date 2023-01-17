@@ -402,7 +402,9 @@ body > .container > footer .copy {
 }
 
 #exampleInputEmail1,
-#exampleInputPassword1 {
+#exampleInputPassword1,
+#password,
+#username {
   background-color: inherit !important;
   color: #fff;
   padding-left: 0;
@@ -418,6 +420,19 @@ body > .container > footer .copy {
   padding: 0.5em 0;
 }
 #login_btn:hover {
+  background-color: inherit;
+  color: #fff;
+  border-color: #fff;
+}
+
+#logout_btn {
+  width: 80%;
+  font-weight: 800;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 0.5em 0;
+}
+#logout_btn:hover {
   background-color: inherit;
   color: #fff;
   border-color: #fff;
@@ -442,6 +457,7 @@ body > .container > footer .copy {
   .carousel-caption h3 {
     font-size: 0.9em;
   }
+
   /* BLOG */
   .main-content > article > .col-lg-3 {
     padding: 0 15px 0 15px;

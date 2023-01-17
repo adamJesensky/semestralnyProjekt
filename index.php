@@ -110,14 +110,18 @@
     </section>
 
     <hr>
-    <div class="text-center px-3">
+    <!-- <div class="text-center px-3">
       <p><strong>OZNAM:</strong></p>
       <p><em><strong>Pripomíname, že na skúšku svadobných šiat je potrebné sa vopred objednať !</strong></em> </p>
       <p><em>Pri zarezervovani svadobných šiat na Váš termín svadby sa platí záloha v hodnote 100€.</em></p>
       <p><em>Pri skúšaní svadobných šiat je skúšanie troch modelov grátis.</em></p>
+    </div> -->
+
+
+    <div class="text-center px-3">
+      <p><strong>OZNAM:</strong></p>
+      <?php include("get_announcement.php"); ?>
     </div>
-
-
 
 
     <footer>
