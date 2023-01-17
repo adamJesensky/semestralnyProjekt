@@ -3,6 +3,4 @@ validita html
 moznom ensie logo na telefonoch 
 
 pozriet php ohladom usera ci je vsade prepare resp. poriesene sql injections
-pridat do create use php kontrolu inputu od yusera, hash password
 edit btn na useroch nema -> modal nema dobre buttony css
-upravit zobrazovanie oznamov tabulku aby sa tam nedavali userovia data 

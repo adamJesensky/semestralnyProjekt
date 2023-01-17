@@ -5,6 +5,45 @@ include "connection.php";
 $username = $_POST['user_name'];
 $password = $_POST['password'];
 $id = $_POST['id'];
+
+// Perform validation on the form data
+if (empty($username) || empty($password)) {
+    $response = array(
+        'status' => 'error',
+        'message' => 'Both username and password are required fields.'
+    );
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+}
+else {
+    
+}
+// Regular expression pattern to match against special characters
+$pattern = '/[^a-zA-Z0-9]/';
+// Check if the username or password contains special characters
+if (preg_match($pattern, $username) || preg_match($pattern, $password)) {
+    $response = array(
+        'status' => 'error',
+        'message' => 'Username and password can only contain letters and numbers.'
+    );
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+}
+if (strlen($password) < 8) {
+    $response = array(
+        'status' => 'error',
+        'message' => 'Password must be at least 8 characters long.'
+    );
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+}
+
+// Hash the password for security
+$password = password_hash($password, PASSWORD_DEFAULT);
+
 // Prepare the SQL statement
 $query = "INSERT INTO registered_users (id,username, password) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($con, $query);

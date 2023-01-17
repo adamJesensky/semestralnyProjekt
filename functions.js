@@ -1,6 +1,6 @@
 // functions.js
 
-
+//////////////////////////////////////////////////////////////////// DELETE EDIT USERS //////////////////////////////////////////////////////////////////
 // Function to delete a user
 function deleteUser(id) {
   console.log("Deleting user with ID:", id);
@@ -64,53 +64,78 @@ function submitEditForm() {
     })
     .catch(error => console.log(error));
 }
+////////////////////////////////////////////////////////////////////END DELETE EDIT USERS //////////////////////////////////////////////////////////////////
 
 
 
+//////////////////////////////////////////////////////////////////// USERS //////////////////////////////////////////////////////////////////
 //function that can handle the form submission for creating a new user
 function createUser() {
   console.log("Creating user");
-   // Get the max id from the table
-   $.ajax({
-    url: 'get_highest_id.php',
-    type: 'post',
-    dataType: 'json',
-    success: function(data) {
-      console.log("Max ID received: ", data);
-       // Get the form data
-      let formData = $('#createForm').serializeArray();
-      console.log("Form data: ", formData);
+  // Get the form data
+  let formData = $('#createForm').serializeArray();
+  console.log("Form data: ", formData);
+  let username = formData[0].value;
+  let password = formData[1].value;
+
+  // check if the input is empty
+  if (!username || !password) {
+    errorAlert("Všetky polia musia byť vyplnené");
+    return;
+  }
+  // check the length of the input
+  if (username.length < 3 || username.length > 15) {
+    errorAlert("Meno musí mať 3-15 znakov");
+    return;
+  }
+  if (password.length < 8) {
+    errorAlert("Heslo musí mať aspoň 8 znakov");
+    return;
+  }
+   // check if the input contains special characters
+  if (!username.match(/^[a-zA-Z0-9]+$/) || !password.match(/^[a-zA-Z0-9]+$/)) {
+    errorAlert("Meno a heslo by nemalo obsahovať žiadne špeciálne znaky, medzery, lomky ani HTML tagy");
+    return;
+  } 
+
+  // Get the max id from the table
+  $.ajax({
+  url: 'get_highest_id.php',
+  type: 'post',
+  dataType: 'json',
+  success: function(data) {
+    console.log("Max ID received: ", data);
+    // Add the id to the form data
+    formData.push({ name: 'id', value: data.highest_id  + 1 });
+    console.log("Form data with ID: ", formData);
       
-      // Add the id to the form data
-      formData.push({ name: 'id', value: data.highest_id  + 1 });
-      console.log("Form data with ID: ", formData);
-      
-      // Save the data to the database
-      $.ajax({
-        url: 'create_user.php',
-        type: 'post',
-        data: formData,
-        success: function(response) {
-          console.log("User created successfully: ", response);
-          // Close the modal
-          const modal_el  = document.querySelector('#ModalForm');
-          const modal_obj = bootstrap.Modal.getInstance(modal_el);
-          modal_obj.hide();
-          // Show a success message
-          successAlert( 'Úspešne si vytvoril užívateľa');
-          fetchData();
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-          console.log("Error creating user: ", error);
-        }
-      });
-    },
+    // Save the data to the database
+    $.ajax({
+      url: 'create_user.php',
+      type: 'post',
+      data: formData,
+      success: function(response) {
+        console.log("User created successfully: ", response);
+        // Close the modal
+        const modal_el  = document.querySelector('#ModalForm');
+        const modal_obj = bootstrap.Modal.getInstance(modal_el);
+        modal_obj.hide();
+        // Show a success message
+        successAlert( 'Úspešne si vytvoril užívateľa');
+        fetchData();
+      },
+      error: function(xhr, status, error) {
+        errorAlert(xhr.status);
+        console.log(xhr.responseText);
+        console.log("Error creating user: ", error);
+      }
+    });
+  },
     error: function(xhr, status, error) {
       console.log(xhr.responseText);
       console.log("Error getting max ID: ", error);
     }
-  });
+});
 }
 
 // Function to fetch data from the server
@@ -147,6 +172,8 @@ function updateTable(data) {
     $('.user_table').find('tbody').append(row);
   }
 }
+//////////////////////////////////////////////////////////////////// END USERS //////////////////////////////////////////////////////////////////
+
 
 
 //////////////////////////////////////////////////////////////////// OZNAMY //////////////////////////////////////////////////////////////////
@@ -154,6 +181,12 @@ function createAnnouncement() {
   console.log("Create Announcement");
    // Get the form data
    var formData = new FormData(document.querySelector("#createAnnouncementForm"));
+  //  let username = formData[0].value;
+   // check if the input is empty
+  // if (!username || !password) {
+  //   errorAlert("Všetky polia musia byť vyplnené");
+  //   return;
+  // }
    // Send a POST request to the server with the form data
    fetch("create_announcement.php", {
      method: "POST",
