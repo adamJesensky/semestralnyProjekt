@@ -3,4 +3,3 @@ validita html
 moznom ensie logo na telefonoch 
 
 pozriet php ohladom usera ci je vsade prepare resp. poriesene sql injections
-edit btn na useroch nema -> modal nema dobre buttony css
