@@ -95,15 +95,14 @@
 
     <!-- Modal for creating a new announcement -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-      data-bs-target="#createAnnouncementModal">Create
-      Announcement</button>
+      data-bs-target="#createAnnouncementModal">Vytvoriť oznam</button>
 
     <div class="modal fade" id="createAnnouncementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header bg-dark d-flex justify-content-center ">
-            <h5 class="modal-title" id="exampleModalLabel">Create Announcement</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vytvoriť oznam</h5>
             <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0"
               data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -221,9 +220,10 @@
               </div>
             </form>
           </div>
-          <div class="modal-footer bg-dark">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="submitEditForm()">Save changes</button>
+          <div class="modal-footer bg-dark d-flex justify-content-center">
+            <button type="button" class="btn btn-light mt-3" id="login_btn" onclick="submitEditForm()">Save
+              changes</button>
+            <button type="button" class="btn btn-light mt-3" id="login_btn" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
